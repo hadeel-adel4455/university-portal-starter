@@ -1,3 +1,4 @@
+```php
 {{--
     YOUR TASK (W10):  form to create a new course.
 
@@ -15,3 +16,5 @@
 
     TODO: build the form here.
 --}}
+
+```

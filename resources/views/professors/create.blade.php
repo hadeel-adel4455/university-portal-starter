@@ -1,16 +1,46 @@
-{{--
-    YOUR TASK (W10):  form to create a new professor.
+@extends('layouts.app')
 
-    The controller passes in:
-        $departmentOptions  — an array of [id => name] for a dropdown
+@section('title', 'New Professor')
 
-    Submit with:
-        method="POST"  action="{{ route('professors.store') }}"  @csrf
+@section('content')
 
-    Validated fields (use these as input name=""):
-        name          (required)
-        email         (required, must be an email)
-        department_id (optional)
+<div class="page-head">
+    <h1>New Professor</h1>
+    <x-button href="{{ route('professors.index') }}" variant="secondary">← Back</x-button>
+</div>
 
-    TODO: build the form here.
---}}
+<x-card title="Add Professor">
+    <form action="{{ route('professors.store') }}" method="POST" class="form">
+        @csrf
+
+        <x-form-input
+            name="name"
+            label="Full Name"
+            required
+        />
+
+        <x-form-input
+            name="email"
+            label="Email"
+            type="email"
+            required
+        />
+
+        <div class="form-group">
+            <label for="department_id">Department</label>
+            <select name="department_id" id="department_id" class="form-control">
+                <option value="">— Select Department —</option>
+                @foreach ($departmentOptions as $id => $name)
+                    <option value="{{ $id }}">{{ $name }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-actions">
+            <x-button type="submit">Save</x-button>
+            <x-button href="{{ route('professors.index') }}" variant="secondary">Cancel</x-button>
+        </div>
+    </form>
+</x-card>
+
+@endsection

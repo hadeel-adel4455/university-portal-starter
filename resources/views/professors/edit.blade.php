@@ -1,18 +1,51 @@
-{{--
-    YOUR TASK (W10):  form to edit an existing professor.
+@extends('layouts.app')
 
-    The controller passes in:
-        $professor          — an App\DTOs\ProfessorDTO (getters listed in professors/index)
-        $departmentOptions  — an array of [id => name]
+@section('title', 'Edit Professor')
 
-    Submit with:
-        method="POST" + @csrf + @method('PUT')
-        action="{{ route('professors.update', $professor->getId()) }}"
+@section('content')
 
-    Pre-fill each input from the DTO and pre-select the current department
-    ($professor->getDepartmentId()).
+<div class="page-head">
+    <h1>Edit Professor</h1>
+    <x-button href="{{ route('professors.index') }}" variant="secondary">← Back</x-button>
+</div>
 
-    Validated fields:  name, email, department_id
+<x-card title="Edit Professor">
+    <form action="{{ route('professors.update', $professor->getId()) }}" method="POST" class="form">
+        @csrf
+        @method('PUT')
 
-    TODO: build the form here.
---}}
+        <x-form-input
+            name="name"
+            label="Full Name"
+            :value="$professor->getName()"
+            required
+        />
+
+        <x-form-input
+            name="email"
+            label="Email"
+            type="email"
+            :value="$professor->getEmail()"
+            required
+        />
+
+        <div class="form-group">
+            <label for="department_id">Department</label>
+            <select name="department_id" id="department_id" class="form-control">
+                <option value="">— Select Department —</option>
+                @foreach ($departmentOptions as $id => $name)
+                    <option value="{{ $id }}" {{ $professor->getDepartmentId() == $id ? 'selected' : '' }}>
+                        {{ $name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-actions">
+            <x-button type="submit">Save Changes</x-button>
+            <x-button href="{{ route('professors.index') }}" variant="secondary">Cancel</x-button>
+        </div>
+    </form>
+</x-card>
+
+@endsection

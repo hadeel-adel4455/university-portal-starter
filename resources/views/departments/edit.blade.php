@@ -1,15 +1,31 @@
-{{--
-    YOUR TASK (W10):  form to edit an existing department.
+@extends('layouts.app')
 
-    The controller passes in:
-        $department  — an App\DTOs\DepartmentDTO  (getId(), getName())
+@section('title', 'Edit Department')
 
-    Submit the form with:
-        method="POST" + @csrf + @method('PUT')
-        action="{{ route('departments.update', $department->getId()) }}"
+@section('content')
 
-    Pre-fill the input with the current value: $department->getName()
-    Validated fields:  name (required)
+<div class="page-head">
+    <h1>Edit Department</h1>
+    <x-button href="{{ route('departments.index') }}" variant="secondary">← Back</x-button>
+</div>
 
-    TODO: build the form here.
---}}
+<x-card title="Edit Department">
+    <form action="{{ route('departments.update', $department->getId()) }}" method="POST" class="form">
+        @csrf
+        @method('PUT')
+
+        <x-form-input
+            name="name"
+            label="Department Name"
+            :value="$department->getName()"
+            required
+        />
+
+        <div class="form-actions">
+            <x-button type="submit">Save Changes</x-button>
+            <x-button href="{{ route('departments.index') }}" variant="secondary">Cancel</x-button>
+        </div>
+    </form>
+</x-card>
+
+@endsection

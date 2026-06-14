@@ -1,3 +1,4 @@
+```php
 {{--
     YOUR TASK (W10 + W13):  list every course.
 
@@ -16,3 +17,15 @@
 
     TODO: build the view here.
 --}}
+
+```
+@extends('layouts.app')
+@section('title', 'Courses')
+@section('content')
+<div class="page-head">
+    <h1>Courses</h1>
+</div>
+<x-card title="All Courses">
+    <p class="empty">This section is under construction.</p>
+</x-card>
+@endsection

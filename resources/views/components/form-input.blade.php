@@ -1,20 +1,31 @@
-{{--
-    YOUR TASK (W14 — Blade Components):  build the <x-form-input> component.
+@props([
+    'name' => '',
+    'label' => '',
+    'type' => 'text',
+    'value' => '',
+    'required' => false,
+])
 
-    You will use it inside the create/edit forms, e.g.:
-        <x-form-input name="email" label="Email" type="email" required />
-        <x-form-input name="name"  label="Full Name" :value="$student->getName()" required />
+<div class="form-group">
+    @if ($label)
+        <label for="{{ $name }}">
+            {{ $label }}
+            @if ($required)
+                <span class="req">*</span>
+            @endif
+        </label>
+    @endif
 
-    Suggested props:
-        name, label, type (default 'text'), value (default ''), required (default false)
+    <input
+        type="{{ $type }}"
+        id="{{ $name }}"
+        name="{{ $name }}"
+        value="{{ old($name, $value) }}"
+        @if ($required) required @endif
+        {{ $attributes->merge(['class' => 'form-control' . ($errors->has($name) ? ' is-invalid' : '')]) }}
+    >
 
-    It should render a <label> and an <input>. Two helpful tips:
-        - keep the user's input after a validation error:
-              value="{{ old($name, $value) }}"
-        - show the validation message for this field:
-              @error($name) ... {{ $message }} ... @enderror
-
-    Provided CSS classes: .form-group, .form-control, .form-error
-
-    TODO: build the component here.
---}}
+    @error($name)
+        <p class="form-error">{{ $message }}</p>
+    @enderror
+</div>

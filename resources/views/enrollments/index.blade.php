@@ -1,3 +1,4 @@
+```php
 {{--
     YOUR TASK (W10 + W13):  list every enrollment.
 
@@ -20,3 +21,9 @@
 
     TODO: build the view here.
 --}}
+@extends('layouts.app')
+
+@section('title', 'Enrollments')
+
+@section('content')
+```
