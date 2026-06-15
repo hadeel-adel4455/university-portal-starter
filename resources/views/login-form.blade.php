@@ -3,14 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In | LIMU Portal</title>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <style>
+    <title>LIMU Portal</title>
+   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     
-    </style>
 </head>
 <body>
-
 <div class="login-box">
     <div class="login-logo">
         <div class="brand-mark">
@@ -26,35 +23,52 @@
     </div>
 
     <div class="login-title">
-        <h2>Welcome Back </h2>
+        <h2>Welcomm</h2>
         <p>Sign in to your account</p>
     </div>
 
     <div class="form-group">
         <label>Email Address</label>
-        <input type="email" placeholder="you@limu.edu.ly">
+        <input type="text" id="email" placeholder="you@limu.edu.ly">
     </div>
 
     <div class="form-group">
         <label>Password</label>
-        <input type="password" placeholder="••••••••">
+        <input type="password" id="password" placeholder="••••••••">
     </div>
 
-    <a href="#" class="forgot-link">Forgot password?</a>
+   <p class="error-msg" id="error-msg">Invalid email or password!</p>
 
-    <a href="/register-form" class="login-btn" style="margin-top:10px; background:#f8faff; color:#1a3a6b; border:1px solid #1a3a6b;">
-    Sign Up
-</a>
-
-    <a href="{{ route('departments.index') }}" class="login-btn">
+   <button type="button" onclick="checkLogin()" class="btn-login">
     Log In
-</a>
-
-
-    <div class="login-footer">
-        &copy; {{ date('Y') }} LIMU Portal &mdash; University Management System
-    </div>
+</button>
 </div>
+<script>
 
+function checkLogin() {
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    if (email && password) {
+
+        if (
+            email === 'hadeel_4455@limu.edu.ly' &&
+            password === 'limu#2023limu#2018'
+        ) {
+            document.getElementById('error-msg').style.display = 'none';
+
+        
+            window.location.href = "{{ route('departments.index') }}";
+
+        } else {
+            document.getElementById('error-msg').style.display = 'block';
+        }
+
+    } else {
+        document.getElementById('error-msg').style.display = 'block';
+    }
+}
+</script>
 </body>
 </html>
