@@ -24,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-               @foreach (collect($professors)->sortBy(fn($p) => $p->getId())->take(10) as $professor)
+                @foreach (collect($professors)->sortBy(fn($p) => $p->getId()) as $professor)
                 <tr>
                     <td class="col-id">{{ $professor->getId() }}</td>
                     <td>{{ $professor->getName() }}</td>
