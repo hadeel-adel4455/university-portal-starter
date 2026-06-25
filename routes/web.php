@@ -1,6 +1,7 @@
 
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EnrollmentController;
