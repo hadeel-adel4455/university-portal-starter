@@ -1,20 +1,21 @@
-```php
-{{--
-    YOUR TASK (W10):  form to create a new course.
-
-    The controller passes in:
-        $departmentOptions  — an array of [id => name] for a dropdown
-
-    Submit with:
-        method="POST"  action="{{ route('courses.store') }}"  @csrf
-
-    Validated fields (use these as input name=""):
-        title         (required)
-        course_code   (required)
-        credit_hours  (required, a whole number between 1 and 12)
-        department_id (optional)
-
-    TODO: build the form here.
---}}
-
-```
+@extends('layouts.app')
+@section('content')
+<x-card title="Add New Course">
+    <form action="{{ route('courses.store') }}" method="POST">
+        @csrf
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" name="title" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Course Code</label>
+            <input type="text" name="course_code" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Credit Hours</label>
+            <input type="number" name="credit_hours" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-success">Save Course</button>
+    </form>
+</x-card>
+@endsection
