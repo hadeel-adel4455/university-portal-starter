@@ -11,7 +11,7 @@
         .auth-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
         .auth-card { width: 100%; max-width: 380px; }
         .auth-head { text-align: center; margin-bottom: 18px; }
-        .auth-head h1 { margin: 0 0 4px; font-size: 1.5rem; }
+        .auth-head h1 { margin: 0 0 4px; font-size: 1.5rem; color: white; }
         .auth-head p { margin: 0; color: var(--muted); }
         .auth-error { background: #fde8e6; border: 1px solid #f3b7b1; color: #a52f25; border-radius: 10px; padding: 10px 14px; margin-bottom: 16px; }
         .auth-demo { margin-top: 16px; text-align: center; font-size: 0.85rem; color: var(--muted); }
@@ -24,7 +24,7 @@
     <div class="auth-wrap">
         <div class="auth-card">
             <div class="auth-head">
-                <h1>🎓 University Portal</h1>
+                <h1>🎓 Limu Portal</h1>
                 <p>Sign in to continue</p>
             </div>
 
@@ -61,7 +61,7 @@
             <p style="margin-top: 16px; text-align: center; font-size: 0.9rem; color: var(--muted);">
                 No account yet? <a href="{{ route('register') }}">Sign up</a>
             </p>
-            <p class="auth-demo">Demo account — <strong>admin@uni.edu</strong> / <strong>password</strong></p>
+
         </div>
     </div>
 </body>

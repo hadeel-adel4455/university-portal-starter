@@ -15,6 +15,7 @@
         .auth-head p { margin: 0; color: var(--muted); }
         .auth-error { background: #fde8e6; border: 1px solid #f3b7b1; color: #a52f25; border-radius: 10px; padding: 10px 14px; margin-bottom: 16px; }
         .auth-alt { margin-top: 16px; text-align: center; font-size: 0.9rem; color: var(--muted); }
+       
     </style>
 </head>
 <body>

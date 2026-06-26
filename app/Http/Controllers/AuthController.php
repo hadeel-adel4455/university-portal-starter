@@ -21,14 +21,11 @@ class AuthController extends Controller
     }
 
     /** Show the login form (or bounce to the dashboard if already signed in). */
-    public function showLogin()
-    {
-        if (Auth::check()) {
-            return redirect()->route('dashboard');
-        }
-
-        return view('auth.login');
-    }
+   
+   public function showLogin()
+{
+    return view('auth.login');
+}
 
     /** Validate the credentials and start a session. */
     public function login(Request $request)
@@ -42,7 +39,7 @@ class AuthController extends Controller
             // Prevent session fixation by rotating the session id on login.
             $request->session()->regenerate();
 
-            return redirect()->intended(route('dashboard'));
+           return redirect()->intended(route('departments.index'));
         }
 
         return back()
@@ -54,7 +51,7 @@ class AuthController extends Controller
     public function showRegister()
     {
         if (Auth::check()) {
-            return redirect()->route('dashboard');
+          return redirect()->intended(route('departments.index'));
         }
 
         return view('auth.register');
@@ -78,7 +75,7 @@ class AuthController extends Controller
         Auth::login($user);
         $request->session()->regenerate();
 
-        return redirect()->route('dashboard');
+       return redirect()->route('departments.index');
     }
 
     /** Log the user out and invalidate the session. */
