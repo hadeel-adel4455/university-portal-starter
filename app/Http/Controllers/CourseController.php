@@ -22,7 +22,10 @@ class CourseController extends Controller
             'courses' => $this->courses->all(),
         ]);
     }
-
+    public static function middleware(): array
+{
+    return [];
+}
     public function create()
     {
         return view('courses.create', [
