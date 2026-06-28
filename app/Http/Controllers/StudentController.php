@@ -40,7 +40,7 @@ class StudentController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255'],
             'student_number' => ['nullable', 'string', 'max:50'],
-            'department_id' => ['nullable', 'integer', 'exists:departments,id'],
+            'department_id' => ['required', 'integer', 'exists:departments,id'],
         ]);
 
         $this->students->create($data);
@@ -67,7 +67,7 @@ class StudentController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'max:255'],
             'student_number' => ['nullable', 'string', 'max:50'],
-            'department_id' => ['nullable', 'integer', 'exists:departments,id'],
+           'department_id' => ['required', 'integer', 'exists:departments,id'],
         ]);
 
         $this->students->update($id, $data);

@@ -12,19 +12,22 @@
         .auth-card { width: 100%; max-width: 380px; }
         .auth-head { text-align: center; margin-bottom: 18px; }
         .auth-head h1 { margin: 0 0 4px; font-size: 1.5rem; color: white; }
-        .auth-head p { margin: 0; color: var(--muted); }
+        .auth-head p { margin: 0; color: #fff;; }
         .auth-error { background: #fde8e6; border: 1px solid #f3b7b1; color: #a52f25; border-radius: 10px; padding: 10px 14px; margin-bottom: 16px; }
         .auth-demo { margin-top: 16px; text-align: center; font-size: 0.85rem; color: var(--muted); }
         .remember { display: flex; align-items: center; gap: 8px; }
         .remember input { width: auto; }
         .remember label { margin: 0; font-weight: 500; }
+        .auth-alt { margin-top: 16px; text-align: center; font-size: 0.9rem; color: #fff;}
+        .signup-link { color: #fff;text-decoration: none;font-weight: 600;}
+        .signup-link:hover { color: #fff; text-decoration: underline;}
     </style>
 </head>
 <body>
     <div class="auth-wrap">
         <div class="auth-card">
             <div class="auth-head">
-                <h1>🎓 Limu Portal</h1>
+                <h1> LIMU Portal 🎓 </h1>
                 <p>Sign in to continue</p>
             </div>
 
@@ -58,10 +61,10 @@
                 </div>
             </div>
 
-            <p style="margin-top: 16px; text-align: center; font-size: 0.9rem; color: var(--muted);">
-                No account yet? <a href="{{ route('register') }}">Sign up</a>
-            </p>
-
+         <p class="auth-alt">
+              No account yet?
+             <a href="{{ route('register') }}" class="signup-link">Sign up</a>
+         </p>
         </div>
     </div>
 </body>

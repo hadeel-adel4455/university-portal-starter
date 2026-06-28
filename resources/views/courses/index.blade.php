@@ -4,7 +4,7 @@
 @section('content')
 <div class="page-head">
     <h1>Courses</h1>
-    <a href="{{ route('courses.create') }}" class="btn btn-primary">New Course</a>
+   <x-button href="{{ route('courses.create') }}">+ New Course</x-button>
 </div>
 
 <x-card title="All Courses">
@@ -26,11 +26,14 @@
                     <td>{{ $course->getCreditHours() }}</td>
                     <td>{{ $course->getDepartmentName() }}</td>
                     <td>
-                        <a href="{{ route('courses.edit', $course->getId()) }}">Edit</a>
+                        <x-button href="{{ route('courses.edit', $course->getId()) }}" variant="secondary">Edit</x-button>
                         <form action="{{ route('courses.destroy', $course->getId()) }}" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure?');">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" style="background:none; border:none; color:red; cursor:pointer;">Delete</button>
+                           <x-button variant="danger" type="submit"
+                                onclick="return confirm('Delete this course?')">
+                                Delete
+                            </x-button>
                         </form>
                     </td>
                 </tr>

@@ -10,7 +10,7 @@
 </div>
 
 <x-card title="Add Professor">
-    <form action="{{ route('professors.store') }}" method="POST" class="form">
+    <form action="{{ route('professors.store') }}" method="POST">
         @csrf
 
         <x-form-input
@@ -37,7 +37,7 @@
         </div>
 
         <div class="form-actions">
-            <x-button type="submit">Save</x-button>
+            <x-button type="submit">Save Professor</x-button>
             <x-button href="{{ route('professors.index') }}" variant="secondary">Cancel</x-button>
         </div>
     </form>

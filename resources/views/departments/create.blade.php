@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app')//تستخدم القالب الأساسي
 
 @section('title', 'New Department')
 
@@ -9,8 +9,8 @@
     <x-button href="{{ route('departments.index') }}" variant="secondary">← Back</x-button>
 </div>
 
-<x-card title="Add Department">
-    <form action="{{ route('departments.store') }}" method="POST" class="form">
+<x-card title="Add Department">   
+    <form action="{{ route('departments.store') }}" method="POST">
         @csrf
 
         <x-form-input
@@ -20,7 +20,7 @@
         />
 
         <div class="form-actions">
-            <x-button type="submit">Save</x-button>
+            <x-button type="submit">Save Department</x-button>
             <x-button href="{{ route('departments.index') }}" variant="secondary">Cancel</x-button>
         </div>
     </form>

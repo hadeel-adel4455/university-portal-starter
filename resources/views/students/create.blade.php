@@ -49,27 +49,18 @@
             />
 
             <div class="form-group">
-                <label for="department_id">Department</label>
+              <label>Department</label>
 
-                <select
-                    id="department_id"
-                    name="department_id"
-                    class="form-control{{ $errors->has('department_id') ? ' is-invalid' : '' }}"
-                >
-                    <option value="">-- None --</option>
-                    @foreach ($departmentOptions as $id => $name)
-                        <option value="{{ $id }}" @selected(old('department_id') == $id)>
-                            {{ $name }}
-                        </option>
-                    @endforeach
-                </select>
+              <select name="department_id" class="form-control" required>
+               <option value="">-- Select Department --</option>
 
-                @error('department_id')
-                    <p class="form-error">{{ $message }}</p>
-                @enderror
-            </div>
+               @foreach($departmentOptions as $id => $name)
+              <option value="{{ $id }}">{{ $name }}</option>
+              @endforeach
+             </select>
+       </div>
 
-            <div class="mt-3">
+             <div class="mt-3">
                 <x-button type="submit" variant="primary">Save Student</x-button>
                 <x-button href="{{ route('students.index') }}" variant="secondary">Cancel</x-button>
             </div>
